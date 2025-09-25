@@ -9,8 +9,16 @@
         <div class="mx-auto" style="max-width: 800px;">
             <form action="/akun/image" method="post" enctype="multipart/form-data">
                 <label for="profileImage" style="cursor:pointer;">
-                    <img src="<?= !empty($profile['profile_image']) ? $profile['profile_image'] : base_url('images/default.png') ?>"
-                        alt="Profile Picture" id="profileImg" class="rounded-circle" width="120" height="120">
+                    <<?php
+                    $url = $profile['profile_image'] ?? '';
+                    if (strpos($url, 'null') !== false) {
+                        $image = base_url('images/Profile Photo.png');
+                    } else {
+                        $image = $url;
+                    }
+                    ?>
+                    <img src="<?= $image; ?>" alt="Profile Picture" id="profileImg" class="rounded-circle" width="120"
+                        height="120">
                 </label>
                 <input type="file" id="profileImage" name="profile_image" style="display:none;"
                     onchange="uploadImage(this);">
