@@ -6,7 +6,15 @@ $masked = str_repeat('●', strlen(preg_replace('/\D/', '', $formatted)));
 
 <div class="row mb-4">
         <div class="col-md-6">
-            <img src="<?= $profile['profile_image']; ?>" alt="" width="55" height="55"><br>
+            <?php
+                $url = $profile['profile_image'] ?? '';
+                if (strpos($url, 'null') !== false) {
+                    $image = base_url('images/Profile Photo.png');
+                } else {
+                    $image = $url;
+                }
+                ?>
+                <img src="<?= $image; ?>" alt="" width="55" height="55"><br>
             Selamat datang,<br>
             <p style="font-size: 1.5rem; font-weight: bold;">
                 <?= esc($profile['first_name'] . ' ' . $profile['last_name']) ?>
