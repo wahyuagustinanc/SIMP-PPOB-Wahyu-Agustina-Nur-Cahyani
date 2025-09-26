@@ -2,7 +2,7 @@
 
 namespace Config;
 
-use App\Filters\AuthFilter;
+// use App\Filters\AuthFilter;
 use CodeIgniter\Config\Filters as BaseFilters;
 use CodeIgniter\Filters\Cors;
 use CodeIgniter\Filters\CSRF;
@@ -35,7 +35,7 @@ class Filters extends BaseFilters
         'forcehttps'    => ForceHTTPS::class,
         'pagecache'     => PageCache::class,
         'performance'   => PerformanceMetrics::class,
-        'isLoggedIn'    => AuthFilter::class,
+        // 'isLoggedIn'    => AuthFilter::class,
     ];
 
     /**
@@ -109,16 +109,16 @@ class Filters extends BaseFilters
      * @var array<string, array<string, list<string>>>
      */
     public array $filters = [
-        'isLoggedIn' => ['before' => [
-            'homepage',
-            'pemeriksa',
-            'topup',
-            'transaction',
-            'transaction/*',
-            'pembayaran',
-            'pembayaran/*',
-            'akun',
-            'akun/*'
-        ]]
+        // 'isLoggedIn' => ['before' => [
+        //     'homepage',
+        //     'pemeriksa',
+        //     'topup',
+        //     'transaction',
+        //     'transaction/*',
+        //     'pembayaran',
+        //     'pembayaran/*',
+        //     'akun',
+        //     'akun/*'
+        // ]]
     ];
 }
